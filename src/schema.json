@@ -1,11 +1,20 @@
 {
 	"pages": [{
 		"img": "logo",
-		"title": "Welcome to the Stellar Integration Tutorial",
+		"title": "Welcome to the Interactive Stellar Integration Tutorial",
 		"body": [
 			"Stellar is Open-Source, Distributed Payments Infastructure.",
 			"It connects people, payment systems, and banks.",
 			"Integrate with Stellar to move money quickly, reliably, and for a fraction of a penny."
+		]
+	}, {
+		"img": "logo",
+		"title": "Getting Started",
+		"body": [
+			"We will walk you through the various endpoints you need to build to become an anchor.",
+			"You can find sample code and tests in this tutorial alongside the explanations.",
+			"You can even download the code and run the tests from within your browser directly.",
+			"When you are done with this tutorial, you would have successfully been set up as an anchor, with your systems fully tested."
 		]
 	}]
 }
