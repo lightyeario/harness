@@ -16,5 +16,15 @@
 			"You can even download the code and run the tests from within your browser directly.",
 			"When you are done with this tutorial, you would have successfully been set up as an anchor, with your systems fully tested."
 		]
+	}, {
+		"img": "logo",
+		"title": "Endpoint 1: Fetch Info",
+		"body": [
+			"The \"Fetch Info\" endpoint is sent a federation address (like \"tunde_adebayo*your_org.com\") and should return all the information necessary for another organization to perform compliance checks. It can be any data you deem reasonable and must be formatted as JSON.",
+			"When you are sending a payment, it will be called to get information on the customer who is sending the payment in order to send it to the receiving organization.",
+			"When receiving a payment, it will be called if the sending organization has requested information on the receiver to do its own compliance checks (based on the needs_auth configuration).",
+			""
+		],
+		"code_sample": "fetchInfo"
 	}]
 }

@@ -17,3 +17,10 @@
 .img {
   height: 80px;
 }
+
+.CodeSample {
+  border: 1px solid #dedfe0;
+  padding: 1.5em;
+  background: #f4f4f5;
+  display: inline-block;
+}

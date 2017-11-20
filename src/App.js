@@ -41,6 +41,7 @@ class App extends Component {
           title = {data.title}
           body = {data.body}
           img = {data.img}
+          code_sample = {data.code_sample}
         />
         <div className="Footer">
           {prevButton}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './Template.css';
 import images from './images.js';
+import CodeSamples from './code_samples.js';
 
 class Template extends Component {
   render() {
@@ -10,6 +11,13 @@ class Template extends Component {
   	for (let i = 0; i < this.props.body.length; i++) {
   		body.push(<p key={i}>{this.props.body[i]}</p>);
   	}
+    let codeSample = ""
+    if (this.props.code_sample) {
+      const CodeComponent = CodeSamples[this.props.code_sample]
+      codeSample = (<div className="CodeSample">
+        <CodeComponent/>
+      </div>);
+    }
 
   	return (<div>
   		<header className="Top">
@@ -19,6 +27,7 @@ class Template extends Component {
       <div className="Body">
         {body}
       </div>
+      {codeSample}
     </div>);
   }
 }
@@ -26,7 +35,8 @@ class Template extends Component {
 Template.propTypes = {
   title: PropTypes.string.isRequired,
   body: PropTypes.arrayOf(PropTypes.string).isRequired,
-  img: PropTypes.string
+  img: PropTypes.string,
+  code_sample: PropTypes.string
 };
 
 export default Template;
