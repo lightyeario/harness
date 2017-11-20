@@ -1,18 +1,32 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './logo.png';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+        <header className="Header">
+          <img src={logo} className="logo" alt="logo" />
+          <h1 className="title">Welcome to the Stellar Integration Tutorial</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div className="Body">
+          <p>
+            Stellar is Open-Source, Distributed Payments Infastructure.
+          </p>
+          <p>
+            It connects people, payment systems, and banks.<br/>
+            Integrate with Stellar to move money quickly, reliably, and for a fraction of a penny.
+          </p>
+        </div>
+        <div className="Footer">
+          <button className="button Next item">
+          &lt;- Previous
+          </button>
+          <button className="button Previous item">
+          Next ->
+          </button>
+        </div>
       </div>
     );
   }
