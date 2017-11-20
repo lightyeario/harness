@@ -1,0 +1,11 @@
+{
+	"pages": [{
+		"img": "logo",
+		"title": "Welcome to the Stellar Integration Tutorial",
+		"body": [
+			"Stellar is Open-Source, Distributed Payments Infastructure.",
+			"It connects people, payment systems, and banks.",
+			"Integrate with Stellar to move money quickly, reliably, and for a fraction of a penny."
+		]
+	}]
+}

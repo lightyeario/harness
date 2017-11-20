@@ -1,31 +1,50 @@
 import React, { Component } from 'react';
-import logo from './logo.png';
 import './App.css';
+import Template from './Template.js';
+import schema from './schema.json';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pageIdx: 0
+    };
+  }
+  _previous() {
+    this.setState({
+      pageIdx: this.state.pageIdx - 1
+    });
+  }
+  _next() {
+    this.setState({
+      pageIdx: this.state.pageIdx + 1
+    });
+  }
   render() {
+    const pages = schema["pages"];
+    const data = pages[this.state.pageIdx];
+    const hasPrevious = this.state.pageIdx > 0;
+    const hasNext = this.state.pageIdx + 1 < pages.length;
+
+    const prevButton = !hasPrevious ? "" : (
+      <button className="button Previous item" onClick = {this._previous.bind(this)}>
+      &lt;- Previous
+      </button>);
+    const nextButton = !hasNext ? "" : (
+      <button className="button Next item" onClick = {this._next.bind(this)}>
+      Next ->
+      </button>);
+
     return (
       <div className="App">
-        <header className="Header">
-          <img src={logo} className="logo" alt="logo" />
-          <h1 className="title">Welcome to the Stellar Integration Tutorial</h1>
-        </header>
-        <div className="Body">
-          <p>
-            Stellar is Open-Source, Distributed Payments Infastructure.
-          </p>
-          <p>
-            It connects people, payment systems, and banks.<br/>
-            Integrate with Stellar to move money quickly, reliably, and for a fraction of a penny.
-          </p>
-        </div>
+        <Template
+          title = {data.title}
+          body = {data.body}
+          img = {data.img}
+        />
         <div className="Footer">
-          <button className="button Next item">
-          &lt;- Previous
-          </button>
-          <button className="button Previous item">
-          Next ->
-          </button>
+          {prevButton}
+          {nextButton}
         </div>
       </div>
     );

@@ -1,0 +1,19 @@
+.Top {
+  border-top: 1px solid #dedfe0;
+  border-bottom: 1px solid #dedfe0;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  background: #f4f4f5;
+}
+
+.Body {
+  font-size: large;
+}
+
+.title {
+  font-size: 1.5em;
+}
+
+.img {
+  height: 80px;
+}

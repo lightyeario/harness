@@ -2,33 +2,13 @@
   text-align: center;
 }
 
-.Header {
-  border-top: 1px solid #dedfe0;
-  border-bottom: 1px solid #dedfe0;
-  padding-top: 1.5em;
-  padding-bottom: 1.5em;
-  background: #f4f4f5;
-}
-
-.Body {
-  font-size: large;
-}
-
 .Footer {
   height: 150px;
   padding: 20px;
 }
 
-.title {
-  font-size: 1.5em;
-}
-
 .Footer > .item {
   margin: 10px;
-}
-
-.logo {
-  height: 80px;
 }
 
 .button {
