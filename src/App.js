@@ -27,11 +27,11 @@ class App extends Component {
     const hasNext = this.state.pageIdx + 1 < pages.length;
 
     const prevButton = !hasPrevious ? "" : (
-      <button className="button Previous item" onClick = {this._previous.bind(this)}>
+      <button className="Previous item" onClick = {this._previous.bind(this)}>
       &lt;- Previous
       </button>);
     const nextButton = !hasNext ? "" : (
-      <button className="button Next item" onClick = {this._next.bind(this)}>
+      <button className="Next item" onClick = {this._next.bind(this)}>
       Next ->
       </button>);
 
@@ -39,9 +39,10 @@ class App extends Component {
       <div className="App">
         <Template
           title = {data.title}
-          body = {data.body}
+          description = {data.description}
           img = {data.img}
-          code_sample = {data.code_sample}
+          codeSample = {data.code_sample}
+          urlPlaceholder = {data.url_placeholder}
         />
         <div className="Footer">
           {prevButton}

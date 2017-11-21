@@ -31,3 +31,17 @@
   background: #f4f4f5;
   display: inline-block;
 }
+
+.Testing {
+  margin: 20px;
+}
+
+.Testing .Input {
+  margin: 20px;
+  display: inline-flex;
+}
+
+.URL {
+  margin-left: 15px;
+  width: 300px;
+}
