@@ -8,6 +8,9 @@
 
 .Body {
   font-size: large;
+  text-align: left;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .title {
@@ -20,7 +23,11 @@
 
 .CodeSample {
   border: 1px solid #dedfe0;
-  padding: 1.5em;
+  margin: 1em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-top: .5em;
+  padding-bottom: .5em;
   background: #f4f4f5;
   display: inline-block;
 }
