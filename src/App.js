@@ -43,6 +43,7 @@ class App extends Component {
           img = {data.img}
           codeSample = {data.code_sample}
           urlPlaceholder = {data.url_placeholder}
+          stubEndpointPath = {data.stub_endpoint_path}
         />
         <div className="Footer">
           {prevButton}

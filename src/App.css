@@ -20,4 +20,6 @@ button {
   background: #08b5e5;
   color: #fff;
   text-decoration: none;
+
+  cursor: pointer;
 }

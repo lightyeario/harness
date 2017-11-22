@@ -26,6 +26,7 @@
 			""
 		],
 		"code_sample": "fetchInfo",
-		"url_placeholder": "http://localhost:8002/compliance/fetchInfo"
+		"stub_endpoint_path": "./stubs/fetchInfo.py",
+		"url_placeholder": "http://localhost:9000/compliance/fetchInfo"
 	}]
 }

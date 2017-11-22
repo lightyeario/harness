@@ -14,7 +14,8 @@ class Template extends Component {
 
   _newState(props) {
     return {
-      url: props.urlPlaceholder
+      url: props.urlPlaceholder,
+      testMessage: ""
     };
   }
 
@@ -29,10 +30,24 @@ class Template extends Component {
     });
   }
 
-  _doTest() {
-    const url = this.state.url;
-    console.log(url);
-    alert(request(url));
+  _runTest() {
+
+  }
+
+  _doFetch() {
+    this.setState({
+      testMessage: "Sending GET request to " + this.state.url
+    });
+    request(this.state.url, function(data) {
+      this.setState({
+        testMessage: "Response:\n" + JSON.stringify(data)
+      });
+      this._runTest()
+    }.bind(this), function(error) {
+      this.setState({
+        testMessage: "Error:\n" + error
+      });
+    }.bind(this));
   }
 
   render() {
@@ -45,8 +60,15 @@ class Template extends Component {
     let codeSample = "";
     if (this.props.codeSample) {
       const CodeComponent = CodeSamples[this.props.codeSample]
-      codeSample = (<div className="CodeSample">
-        <CodeComponent/>
+      codeSample = (<div>
+        <div className="CodeSample">
+          <CodeComponent/>
+        </div>
+        <div>
+          <form method="GET" action={this.props.stubEndpointPath}>
+            <button type="submit">{"Download Sample Code"}</button>
+          </form>
+        </div>
       </div>);
     }
 
@@ -58,7 +80,10 @@ class Template extends Component {
         </div>
         <div className="Input">
           <input className="URL" id="url" value={this.state.url} onChange={this._onChange.bind(this)}/>
-          <button style={{ marginLeft: 10 }} onClick={this._doTest.bind(this)}>{"Test your endpoint"}</button>
+          <button style={{ marginLeft: 10 }} onClick={this._doFetch.bind(this)}>{"Test your endpoint"}</button>
+        </div>
+        <div>
+          <pre>{this.state.testMessage}</pre>
         </div>
       </div>);
     }
@@ -82,7 +107,8 @@ Template.propTypes = {
   description: PropTypes.arrayOf(PropTypes.string).isRequired,
   img: PropTypes.string,
   codeSample: PropTypes.string,
-  urlPlaceholder: PropTypes.string
+  urlPlaceholder: PropTypes.string,
+  stubEndpointPath: PropTypes.string
 };
 
 export default Template;
