@@ -27,6 +27,7 @@
 		],
 		"code_sample": "fetchInfo",
 		"stub_endpoint_path": "./stubs/fetchInfo.py",
-		"url_placeholder": "http://localhost:9000/compliance/fetchInfo"
+		"url_placeholder": "http://localhost:9000/compliance/fetchInfo",
+		"testInput": "?address=myId*stellar.org"
 	}]
 }

@@ -5,6 +5,11 @@ import images from './images.js';
 import CodeSamples from './code_samples.js';
 import request from './request.js'
 
+const SUCCESS = 'SUCCESS';
+const FAIL = 'FAIL';
+const RUNNING = 'RUNNING';
+const NONE = 'NONE';
+
 class Template extends Component {
 
   constructor(props) {
@@ -15,7 +20,8 @@ class Template extends Component {
   _newState(props) {
     return {
       url: props.urlPlaceholder,
-      testMessage: ""
+      testMessage: "",
+      testStatus: NONE
     };
   }
 
@@ -30,22 +36,31 @@ class Template extends Component {
     });
   }
 
-  _runTest() {
+  _testResponse(response) {
+    let success;
+    if (!this.props.testExpected) {
+      success = true
+    } else {
+      success = (JSON.stringify(response) === this.props.testExpected);
+    }
 
+    this.setState({
+      testMessage: "Response:\n" + JSON.stringify(response),
+      testStatus: success ? SUCCESS : FAIL
+    });
   }
 
   _doFetch() {
     this.setState({
-      testMessage: "Sending GET request to " + this.state.url
+      testMessage: "Sending GET request to " + this.state.url,
+      testStatus: RUNNING
     });
-    request(this.state.url, function(data) {
-      this.setState({
-        testMessage: "Response:\n" + JSON.stringify(data)
-      });
-      this._runTest()
+    request(this.state.url + this.props.testInput, function(response) {
+      this._testResponse(response);
     }.bind(this), function(error) {
       this.setState({
-        testMessage: "Error:\n" + error
+        testMessage: "Error:\n" + error,
+        testStatus: FAIL
       });
     }.bind(this));
   }
@@ -74,6 +89,8 @@ class Template extends Component {
 
     let testing = "";
     if (this.state.url) {
+      const testResult = this.state.testStatus === NONE ? "" :
+        (<img src={images[this.state.testStatus]} className="img" alt={this.state.testStatus} />);
       testing = (<div className="Testing">
         <div>
           {"Enter the URL for the endpoint you implemented:"}
@@ -84,6 +101,9 @@ class Template extends Component {
         </div>
         <div>
           <pre>{this.state.testMessage}</pre>
+        </div>
+        <div>
+          {testResult}
         </div>
       </div>);
     }
